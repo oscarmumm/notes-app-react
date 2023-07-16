@@ -1,0 +1,7 @@
+.notes-collection-container {
+  color: var(--color5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
