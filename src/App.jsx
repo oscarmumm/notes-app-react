@@ -25,12 +25,23 @@ function App() {
     return (
         <div className="app">
             <Header />
-            <button onClick={showNewNoteInterface} className="new-note-btn">
-                Nueva nota
-            </button>
-            <div className={isActive ? 'desplegar new-note' : 'contraer new-note'}>
-                <NewNote addNoteToCollection={addNoteToCollection} />
+            <div className="new-note-btn-container">
+                <button onClick={showNewNoteInterface} className="new-note-btn">
+                    Nueva nota
+                </button>
+                <div 
+                    className={
+                        isActive ? "expand new-note-container" : "contract new-note-container"
+                    }
+                >
+                    <NewNote addNoteToCollection={addNoteToCollection} />
+                </div>
             </div>
+            <div
+                className={
+                    isActive ? "desplegar new-note" : "contraer new-note"
+                }
+            ></div>
             <NotesCollection
                 notes={notes}
                 deleteFromCollection={deleteFromCollection}

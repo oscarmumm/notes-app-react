@@ -7,6 +7,18 @@
     background-color: var(--color1);
 }
 
+.new-note-btn-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+    border-radius: 10px;
+    background-color: var(--color2);
+    margin: 1rem 0;
+    width: 80%;
+}
+
 .new-note-btn {
     margin: 0.5rem;
     padding: 0.5rem;
@@ -19,50 +31,43 @@
 }
 
 .new-note {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* .desplegar {
-    position: relative;
-    margin-top: 0;
-    animation-name: desplegar;
-    animation-duration: 500ms;
+.expand {
+    height: 500px;
+    animation: expand 500ms;
+    opacity: 1;
 }
 
-@keyframes desplegar {
+@keyframes expand {
     0% {
-        margin-top: -150vh;
-        opacity: 0;
-    }
-    90% {
+        height: 0;
         opacity: 0;
     }
     100% {
-        margin-top: 0;
+        height: 500px;
         opacity: 1;
     }
 }
 
-.contraer {
-    position: fixed;
-    margin-top: -150vh;
-    animation-name: contraer;
-    animation-duration: 5s;
+.contract {
+    height: 0;
+    animation: contract 500ms;
     opacity: 0;
+    z-index: -1;
 }
-@keyframes contraer {
+
+@keyframes contract {
     0% {
-        margin-top: 0;
+        height: 500px;
         opacity: 1;
     }
-    10% {
-        opacity: 0;
-    }
     100% {
-        margin-top: -150vh;
+        height: 0;
         opacity: 0;
     }
-} */
+}

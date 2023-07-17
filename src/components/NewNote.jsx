@@ -17,7 +17,7 @@ const NewNote = ({addNoteToCollection}) => {
     }
 
     return (
-        <form className="new-note-container">
+        <form>
             <input
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
