@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap");
 
 :root {
-    --color1: #000f08ff;
-    --color2: #1c3738ff;
-    --color3: #4d4847ff;
-    --color4: #f4fff8ff;
-    --color5: #8baaadff;
+    --color1: #000f08;
+    --color2: #1c3738;
+    --color3: #4d4847;
+    --color4: #f4fff8;
+    --color5: #8baaad;  
 }
 
 * {
