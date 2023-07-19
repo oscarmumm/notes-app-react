@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import NewNote from "./components/NewNote";
 import NotesCollection from "./components/NotesCollection";
+import NoteEditor from "./components/NoteEditor";
 
 function App() {
     const [notes, setNotes] = useState([]);
@@ -17,6 +18,10 @@ function App() {
         setNotes(notes.filter((el) => el.title !== data));
     };
 
+    const editThisNote = (data) => {
+        console.log(data);
+    }
+
     const showNewNoteInterface = () => {
         setIsActive((current) => !current);
     };
@@ -26,11 +31,13 @@ function App() {
             <Header />
             <div className="new-note-btn-container">
                 <button onClick={showNewNoteInterface} className="new-note-btn">
-                    Nueva nota
+                    {isActive ? <i className="bi bi-chevron-compact-up"></i> : "Nueva nota"}
                 </button>
-                <div 
+                <div
                     className={
-                        isActive ? "expand new-note-container" : "contract new-note-container"
+                        isActive
+                            ? "expand new-note-container"
+                            : "contract new-note-container"
                     }
                 >
                     <NewNote addNoteToCollection={addNoteToCollection} />
@@ -44,6 +51,7 @@ function App() {
             <NotesCollection
                 notes={notes}
                 deleteFromCollection={deleteFromCollection}
+                editThisNote={editThisNote}
             />
         </div>
     );
