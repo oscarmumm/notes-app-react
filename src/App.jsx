@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header";
 import NewNote from "./components/NewNote";
 import NotesCollection from "./components/NotesCollection";
-import NoteEditor from "./components/NoteEditor";
 
 function App() {
     const [notes, setNotes] = useState([]);
@@ -12,14 +11,19 @@ function App() {
     const addNoteToCollection = (data) => {
         setNotes([...notes, data]);
     };
-
+    
     const deleteFromCollection = (data) => {
-        console.log(data);
-        setNotes(notes.filter((el) => el.title !== data));
+        setNotes(notes.filter((el) => el.id !== data));
     };
 
-    const editThisNote = (data) => {
-        console.log(data);
+    const editNote = (data) => {
+        console.log(data)
+        notes.forEach((el) => {
+            if(el.id === data.id) {
+                el.title = data.title;
+                el.body = data.body
+            }
+        })
     }
 
     const showNewNoteInterface = () => {
@@ -51,7 +55,8 @@ function App() {
             <NotesCollection
                 notes={notes}
                 deleteFromCollection={deleteFromCollection}
-                editThisNote={editThisNote}
+                addNoteToCollection={addNoteToCollection}
+                editNote={editNote}
             />
         </div>
     );

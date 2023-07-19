@@ -9,6 +9,7 @@ const NewNote = ({addNoteToCollection}) => {
     const saveNote = (e) => {
         e.preventDefault();
         addNoteToCollection({
+            id: Date.now(),
             title: title,
             body: body
         })
