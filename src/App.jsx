@@ -19,7 +19,6 @@ function App() {
 
     const showNewNoteInterface = () => {
         setIsActive((current) => !current);
-        console.log(isActive);
     };
 
     return (
