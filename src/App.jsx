@@ -11,20 +11,20 @@ function App() {
     const addNoteToCollection = (data) => {
         setNotes([...notes, data]);
     };
-    
+
     const deleteFromCollection = (data) => {
         setNotes(notes.filter((el) => el.id !== data));
     };
 
     const editNote = (data) => {
-        console.log(data)
+        console.log(data);
         notes.forEach((el) => {
-            if(el.id === data.id) {
+            if (el.id === data.id) {
                 el.title = data.title;
-                el.body = data.body
+                el.body = data.body;
             }
-        })
-    }
+        });
+    };
 
     const showNewNoteInterface = () => {
         setIsActive((current) => !current);
@@ -32,32 +32,43 @@ function App() {
 
     return (
         <div className="app">
-            <Header />
-            <div className="new-note-btn-container">
-                <button onClick={showNewNoteInterface} className="new-note-btn">
-                    {isActive ? <i className="bi bi-chevron-compact-up"></i> : "Nueva nota"}
-                </button>
+            <div className="left-side-desktop">
+                <Header />
+                <div className="new-note-btn-container">
+                    <button
+                        onClick={showNewNoteInterface}
+                        className="new-note-btn"
+                    >
+                        {isActive ? (
+                            <i className="bi bi-chevron-compact-up"></i>
+                        ) : (
+                            "Nueva nota"
+                        )}
+                    </button>
+                    <div
+                        className={
+                            isActive
+                                ? "expand new-note-container"
+                                : "contract new-note-container"
+                        }
+                    >
+                        <NewNote addNoteToCollection={addNoteToCollection} />
+                    </div>
+                </div>
                 <div
                     className={
-                        isActive
-                            ? "expand new-note-container"
-                            : "contract new-note-container"
+                        isActive ? "desplegar new-note" : "contraer new-note"
                     }
-                >
-                    <NewNote addNoteToCollection={addNoteToCollection} />
-                </div>
+                ></div>
             </div>
-            <div
-                className={
-                    isActive ? "desplegar new-note" : "contraer new-note"
-                }
-            ></div>
-            <NotesCollection
-                notes={notes}
-                deleteFromCollection={deleteFromCollection}
-                addNoteToCollection={addNoteToCollection}
-                editNote={editNote}
-            />
+            <div className="right-side-desktop">
+                <NotesCollection
+                    notes={notes}
+                    deleteFromCollection={deleteFromCollection}
+                    addNoteToCollection={addNoteToCollection}
+                    editNote={editNote}
+                />
+            </div>
         </div>
     );
 }
