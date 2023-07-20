@@ -10,3 +10,19 @@
 .no-notes-msg {
   text-align: center;
 }
+
+@media (min-width: 576px) {
+  .notes-collection-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .notes-collection-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+  }
+}
