@@ -4,8 +4,17 @@ import Header from "./components/Header";
 import NewNote from "./components/NewNote";
 import NotesCollection from "./components/NotesCollection";
 
+const getLocalData = () => {
+    let notes = localStorage.getItem('saved-notes');
+    if (notes) {
+        return JSON.parse(localStorage.getItem('saved-notes'))
+    } else {
+        return [];
+    }
+}
+
 function App() {
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState(getLocalData());
     const [isActive, setIsActive] = useState(false);
 
     const addNoteToCollection = (data) => {
@@ -33,6 +42,9 @@ function App() {
         console.log(data);
     };
 
+    useEffect(() => {
+        localStorage.setItem('saved-notes', JSON.stringify(notes))
+    }, [notes])
 
     return (
         <div className="app">
