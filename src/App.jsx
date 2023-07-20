@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import NewNote from "./components/NewNote";
 import NotesCollection from "./components/NotesCollection";
 
 function App() {
-    const [notes, setNotes] = useState([]);
+    const storedItems = JSON.parse(localStorage.getItem("saved-notes"));
+    const [notes, setNotes] = useState(storedItems);
     const [isActive, setIsActive] = useState(false);
 
     const addNoteToCollection = (data) => {
@@ -17,7 +18,6 @@ function App() {
     };
 
     const editNote = (data) => {
-        console.log(data);
         notes.forEach((el) => {
             if (el.id === data.id) {
                 el.title = data.title;
@@ -33,6 +33,10 @@ function App() {
     const showToastMsg = (data) => {
         console.log(data);
     };
+
+    useEffect(() => {
+        localStorage.setItem("saved-notes", JSON.stringify(notes));
+    }, [notes]);
 
     return (
         <div className="app">
