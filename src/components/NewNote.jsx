@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../styles/NewNote.css";
 
-const NewNote = ({addNoteToCollection}) => {
+const NewNote = ({addNoteToCollection, showToastMsg}) => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
 
@@ -15,6 +15,7 @@ const NewNote = ({addNoteToCollection}) => {
         })
         setTitle('')
         setBody('')
+        showToastMsg('Nota guardada')
     }
 
     return (

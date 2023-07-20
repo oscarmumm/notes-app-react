@@ -16,7 +16,7 @@ const NotesCollection = ({ notes, deleteFromCollection, addNoteToCollection, edi
                     />
                 ))
             ) : (
-                <h3>No hay notas guardadas</h3>
+                <h3 className="no-notes-msg">No hay notas guardadas</h3>
             )}
         </ul>
     );
