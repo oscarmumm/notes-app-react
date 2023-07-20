@@ -5,8 +5,7 @@ import NewNote from "./components/NewNote";
 import NotesCollection from "./components/NotesCollection";
 
 function App() {
-    const storedItems = JSON.parse(localStorage.getItem("saved-notes"));
-    const [notes, setNotes] = useState(storedItems);
+    const [notes, setNotes] = useState([]);
     const [isActive, setIsActive] = useState(false);
 
     const addNoteToCollection = (data) => {
@@ -34,9 +33,6 @@ function App() {
         console.log(data);
     };
 
-    useEffect(() => {
-        localStorage.setItem("saved-notes", JSON.stringify(notes));
-    }, [notes]);
 
     return (
         <div className="app">
