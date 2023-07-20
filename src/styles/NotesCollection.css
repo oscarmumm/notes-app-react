@@ -9,6 +9,7 @@
 
 .no-notes-msg {
   text-align: center;
+  grid-column: 1 / 3;
 }
 
 @media (min-width: 576px) {
@@ -17,6 +18,9 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
   }
+  .no-notes-msg {
+    grid-column: 1 / 3;
+  }
 }
 
 @media (min-width: 992px) {
@@ -24,5 +28,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
+  }
+  .no-notes-msg {
+    grid-column: 1 / 4;
   }
 }
